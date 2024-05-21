@@ -56,7 +56,7 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP POST create user" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP POST create user">
           <stringProp name="HTTPSampler.domain">serverest.dev</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">usuarios</stringProp>
@@ -70,7 +70,7 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
     &quot;nome&quot;: &quot;Salvatore Jacobs&quot;,&#xd;
-    &quot;email&quot;: &quot;carolina.frami${__Random(1,1000)}@hotmail.com&quot;,&#xd;
+    &quot;email&quot;: &quot;carolina.frami${__Random(1,10000)}@hotmail.com&quot;,&#xd;
     &quot;password&quot;: &quot;teste10&quot;,&#xd;
     &quot;administrador&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -149,11 +149,17 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="authorization">
+            <stringProp name="JSONPostProcessor.referenceNames">authorization</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.authorization</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP POST produto" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP POST produto">
           <stringProp name="HTTPSampler.domain">serverest.dev</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">usuarios</stringProp>
+          <stringProp name="HTTPSampler.path">produtos</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -193,6 +199,10 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">accept</stringProp>
                 <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${authorization}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -235,7 +245,7 @@
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Relatório de Sumário" enabled="true">
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Relatório de Sumário">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
