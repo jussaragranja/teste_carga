@@ -17,7 +17,6 @@ Importe o arquivo .jmx no JMeter e execute.
 * LinkedIn: [@jussaragranja](https://linkedin.com/in/jussaragranja)
 * Github: [@jussaragranja](https://github.com/jussaragranja)
 * GitLab: [@jussaragranja](https://gitlab.com/jussaragranja)
-* Twitter: [@JuuhGranja](https://twitter.com/JuuhGranja)
 
 ## Screenshots
 
